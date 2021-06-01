@@ -1,5 +1,5 @@
 function getRandomInt(min, max) {
-  if(min>max){
+  if(min>=max){
     console.error('min cannot be greater than max');
     return false;
   }
@@ -8,7 +8,7 @@ function getRandomInt(min, max) {
 console.log(getRandomInt(10,20));
 
 function getRandomFloat(min, max, dec) {
-  if(min>max){
+  if(min>=max){
     console.error('min cannot be greater than max');
     return false;
   }
