@@ -1,27 +1,34 @@
 function getRandomInt(min, max) {
-  if(min>=max){
-    console.error('min cannot be greater than max');
-    return false;
+  if (min >= max) {
+    throw new Error('min cannot be greater than or equal to max');
+  }
+
+  if (min < 0 || max < 0) {
+    throw new Error('min and max cannot be less then 0');
   }
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-console.log(getRandomInt(10,20));
+
+getRandomInt();
+
+//console.log(getRandomInt(1,10));
 
 function getRandomFloat(min, max, dec) {
-  if(min>=max){
-    console.error('min cannot be greater than max');
-    return false;
+  if (min >= max) {
+    throw new Error('min cannot be greater than or equal to max');
   }
-  let multiplier = Math.pow(10, dec);
-  return Math.floor((Math.random() * (max - min + 1) + min) * multiplier)/multiplier;
+
+  if (min < 0 || max < 0) {
+    throw new Error('min and max cannot be less then 0');
+  }
+  const multiplier = Math.pow(10, dec);
+
+  return ((Math.random() * (max - min) * multiplier + multiplier * min) / multiplier).toFixed(dec);
 }
 
-console.log(getRandomFloat(25,50, 4));
+getRandomFloat();
 
-/* Вызов из функции getRandomFloat
-function getRandomInt2(min, max, dec) {
-return getRandomFloat (min, max, 0)
+/*for (let i= 0; i < 10; i++) {
+  console.log(getRandomFloat(1.1, 1.2, 3));
 }
-
-console.log(getRandomInt2(25,50, 0));
 */
